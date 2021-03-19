@@ -36,12 +36,14 @@ namespace ExternalClinics
             this.TopBar = new System.Windows.Forms.Panel();
             this.Doctors = new System.Windows.Forms.Button();
             this.Appointments = new System.Windows.Forms.Button();
+            this.Patients = new System.Windows.Forms.Button();
             this.TopBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopBar
             // 
             this.TopBar.BackColor = System.Drawing.Color.Transparent;
+            this.TopBar.Controls.Add(this.Patients);
             this.TopBar.Controls.Add(this.Doctors);
             this.TopBar.Controls.Add(this.Appointments);
             this.TopBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -70,6 +72,15 @@ namespace ExternalClinics
             this.Appointments.Text = "Appointments";
             this.Appointments.UseVisualStyleBackColor = false;
             // 
+            // Patients
+            // 
+            this.Patients.Location = new System.Drawing.Point(176, 0);
+            this.Patients.Name = "Patients";
+            this.Patients.Size = new System.Drawing.Size(84, 74);
+            this.Patients.TabIndex = 2;
+            this.Patients.Text = "Patients";
+            this.Patients.UseVisualStyleBackColor = true;
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -93,5 +104,6 @@ namespace ExternalClinics
         private Panel TopBar;
         private Button Appointments;
         private Button Doctors;
+        private Button Patients;
     }
 }
