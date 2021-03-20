@@ -55,7 +55,7 @@ namespace ExternalClinics
             this.Dr_Edit.HeaderText = "";
             this.Dr_Edit.Name = "Dr_Edit";
             this.Dr_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dr_Edit.Text = "Edit";
+            this.Dr_Edit.Text = "dit";
             // 
             // AddNew
             // 
@@ -65,6 +65,7 @@ namespace ExternalClinics
             this.AddNew.TabIndex = 1;
             this.AddNew.Text = "Add New";
             this.AddNew.UseVisualStyleBackColor = true;
+            this.AddNew.Click += new System.EventHandler(this.AddNew_Click);
             // 
             // DoctorsForm
             // 

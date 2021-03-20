@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace ExternalClinics
 {
@@ -51,7 +45,24 @@ namespace ExternalClinics
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-  
+            
+        }
+
+        private void AddNew_Click(object sender, EventArgs e)
+        {
+            DoctorsAdd frm = new DoctorsAdd();
+            frm.MdiParent = this.MdiParent;
+            frm.Text = "Add Doctor";
+
+            if (Functions.CheckOpened("DoctorsAdd"))
+            {
+                frm.Focus();
+            }
+            else
+            {
+                frm.Show(); 
+            }
+
         }
     }
 }

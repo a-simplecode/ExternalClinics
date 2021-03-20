@@ -64,7 +64,7 @@ namespace ExternalClinics
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
 
-            if (CheckOpened("AppointmentsForm"))
+            if (Functions.CheckOpened("AppointmentsForm"))
             {
                 frm.Focus(); 
             }
@@ -80,7 +80,7 @@ namespace ExternalClinics
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
 
-            if (CheckOpened("DoctorsForm"))
+            if (Functions.CheckOpened("DoctorsForm"))
             {
                 frm.Focus();
             }
@@ -96,7 +96,7 @@ namespace ExternalClinics
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
 
-            if (CheckOpened("PatientsForm"))
+            if (Functions.CheckOpened("PatientsForm"))
             {
                 frm.Focus();
             }
@@ -112,7 +112,7 @@ namespace ExternalClinics
             frm.MdiParent = this;
             frm.Dock = DockStyle.Fill;
 
-            if (CheckOpened("RoomsForm"))
+            if (Functions.CheckOpened("RoomsForm"))
             {
                 frm.Focus();
             }
@@ -121,18 +121,6 @@ namespace ExternalClinics
                 frm.Show();
             }
         }
-        private bool CheckOpened(string name)
-        {
-            FormCollection fc = Application.OpenForms;
 
-            foreach (Form frm in fc)
-            {
-                if (frm.Text == name)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 }
