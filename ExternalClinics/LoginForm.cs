@@ -29,6 +29,11 @@ namespace ExternalClinics
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Login();
+        }
+
+        private void Login()
+        {
             if (password.Text.Trim() != "" && userName.Text.Trim() != "")
             {
 
@@ -36,15 +41,15 @@ namespace ExternalClinics
                 {
                     Object response;
                     String query = "select * from tbl_Users where User_Code = " + userName.Text.ToQueryString();
-                           query += " and User_Password = " + password.Text.ToQueryString();
+                    query += " and User_Password = " + password.Text.ToQueryString();
 
                     using (SqlConnection con = new SqlConnection(connectionString))
                     {
                         con.Open();
-                        using (SqlCommand command = new SqlCommand(query,con))
+                        using (SqlCommand command = new SqlCommand(query, con))
                         {
                             response = command.ExecuteScalar();
-                            if(response == null)
+                            if (response == null)
                             {
                                 MessageBox.Show("Wrong Username Or Password", "Alert");
                             }
@@ -71,6 +76,14 @@ namespace ExternalClinics
             else
             {
                 MessageBox.Show("Username Or Password are Empty", "Alert");
+            }
+        }
+
+        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Login();
             }
         }
     }
