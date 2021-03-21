@@ -18,9 +18,44 @@ namespace ExternalClinics
         public DoctorsAdd()
         {
             InitializeComponent();
+
+
+            string strsql = "select Spec_Code as [value], Spec_Desc as [label] ";
+            strsql += "from tbl_Specialties ";
+            strsql += "where Spec_Status = 'A'";
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(strsql, con))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            using (DataTable dt = new DataTable())
+                            {
+                                sda.Fill(dt);
+                                if (dt.Rows.Count > 0)
+                                {
+                                    this.Doc_Specialty.DataSource = dt;
+                                    this.Doc_Specialty.DisplayMember = "label";
+                                    this.Doc_Specialty.ValueMember = "value";
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void Clear_Click(object sender, EventArgs e)
+            private void Clear_Click(object sender, EventArgs e)
         {
             if(this.Text == "Add Doctor")
             {

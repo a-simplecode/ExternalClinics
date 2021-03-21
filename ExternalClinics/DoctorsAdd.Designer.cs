@@ -37,13 +37,13 @@ namespace ExternalClinics
             this.Password_Label = new System.Windows.Forms.Label();
             this.Doc_Code = new System.Windows.Forms.TextBox();
             this.Doc_Name = new System.Windows.Forms.TextBox();
-            this.Doc_Specialty = new System.Windows.Forms.ComboBox();
             this.Doc_Photo = new System.Windows.Forms.PictureBox();
             this.Doc_Status_Active = new System.Windows.Forms.RadioButton();
             this.Doc_Status_Inactive = new System.Windows.Forms.RadioButton();
             this.Doc_Password = new System.Windows.Forms.TextBox();
             this.Clear = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
+            this.Doc_Specialty = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Doc_Photo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,15 +118,6 @@ namespace ExternalClinics
             this.Doc_Name.Size = new System.Drawing.Size(142, 23);
             this.Doc_Name.TabIndex = 8;
             // 
-            // Doc_Specialty
-            // 
-            this.Doc_Specialty.FormattingEnabled = true;
-            this.Doc_Specialty.Location = new System.Drawing.Point(190, 80);
-            this.Doc_Specialty.MaxDropDownItems = 100;
-            this.Doc_Specialty.Name = "Doc_Specialty";
-            this.Doc_Specialty.Size = new System.Drawing.Size(142, 23);
-            this.Doc_Specialty.TabIndex = 9;
-            // 
             // Doc_Photo
             // 
             this.Doc_Photo.Location = new System.Drawing.Point(190, 112);
@@ -188,6 +179,15 @@ namespace ExternalClinics
             this.Save.UseVisualStyleBackColor = false;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
+            // Doc_Specialty
+            // 
+            this.Doc_Specialty.FormattingEnabled = true;
+            this.Doc_Specialty.Location = new System.Drawing.Point(190, 80);
+            this.Doc_Specialty.MaxDropDownItems = 100;
+            this.Doc_Specialty.Name = "Doc_Specialty";
+            this.Doc_Specialty.Size = new System.Drawing.Size(142, 23);
+            this.Doc_Specialty.TabIndex = 9;
+            // 
             // DoctorsAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -231,13 +231,12 @@ namespace ExternalClinics
         private System.Windows.Forms.Label Password_Label;
         private System.Windows.Forms.TextBox Doc_Code;
         private System.Windows.Forms.TextBox Doc_Name;
-        private System.Windows.Forms.ComboBox Doc_Specialty;
         private System.Windows.Forms.PictureBox Doc_Photo;
         private System.Windows.Forms.RadioButton Doc_Status_Active;
         private System.Windows.Forms.RadioButton Doc_Status_Inactive;
-        private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.TextBox Doc_Password;
+        public System.Windows.Forms.ComboBox Doc_Specialty;
     }
 }

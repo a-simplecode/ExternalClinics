@@ -40,30 +40,30 @@ namespace ExternalClinics
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Dr_Edit});
-            this.dataGridView1.Location = new System.Drawing.Point(1, 38);
+            this.dataGridView1.Location = new System.Drawing.Point(1, 42);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 452);
+            this.dataGridView1.Size = new System.Drawing.Size(1216, 601);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Dr_Edit
             // 
             this.Dr_Edit.HeaderText = "";
             this.Dr_Edit.Name = "Dr_Edit";
             this.Dr_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dr_Edit.Text = "dit";
+            this.Dr_Edit.Text = "Edit";
             // 
             // AddNew
             // 
-            this.AddNew.Location = new System.Drawing.Point(29, 9);
+            this.AddNew.Location = new System.Drawing.Point(1, 2);
             this.AddNew.Name = "AddNew";
-            this.AddNew.Size = new System.Drawing.Size(75, 23);
+            this.AddNew.Size = new System.Drawing.Size(43, 23);
             this.AddNew.TabIndex = 1;
-            this.AddNew.Text = "Add New";
+            this.AddNew.Text = "Add";
             this.AddNew.UseVisualStyleBackColor = true;
             this.AddNew.Click += new System.EventHandler(this.AddNew_Click);
             // 
@@ -71,7 +71,7 @@ namespace ExternalClinics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1219, 639);
             this.ControlBox = false;
             this.Controls.Add(this.AddNew);
             this.Controls.Add(this.dataGridView1);

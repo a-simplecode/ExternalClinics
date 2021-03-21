@@ -31,6 +31,7 @@ namespace ExternalClinics
                             {
                                 sda.Fill(dt);
                                 dataGridView1.DataSource = dt;
+                                dataGridView1.Dock = DockStyle.Fill;
                             }
                         }
 
@@ -42,17 +43,12 @@ namespace ExternalClinics
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void AddNew_Click(object sender, EventArgs e)
+       
+        private void AddNew_Func()
         {
             DoctorsAdd frm = new DoctorsAdd();
             frm.MdiParent = this.MdiParent;
-            frm.Text = "Add Doctor";
+            frm.Text = "Add";
 
             if (Functions.CheckOpened("DoctorsAdd"))
             {
@@ -60,9 +56,13 @@ namespace ExternalClinics
             }
             else
             {
-                frm.Show(); 
+                frm.Show();
             }
+        }
 
+        private void AddNew_Click(object sender, EventArgs e)
+        {
+            AddNew_Func();
         }
     }
 }
