@@ -132,5 +132,36 @@ namespace ExternalClinics
                 }
             }
         }
+
+        private void Doc_Code_Leave(object sender, EventArgs e)
+        {
+            if(Doc_Code.Text.Trim() != "")
+            {
+                try
+                {
+                    string strsql = "SELECT Doc_Code FROM tbl_Doctors where Doc_Code = " + Doc_Code.Text.ToQueryString();
+
+                    using (SqlConnection con = new SqlConnection(connectionString))
+                    {
+                        using (SqlCommand cmd = new SqlCommand(strsql, con))
+                        {
+                            cmd.CommandType = CommandType.Text;
+                            con.Open();
+                            var res = cmd.ExecuteScalar();
+                            if (res != null)
+                            {
+                                MessageBox.Show("Doctor Code '"+ Doc_Code.Text+"' Already Exists","Alert");
+                                Doc_Code.Text = "";
+                            }
+                            con.Close();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }

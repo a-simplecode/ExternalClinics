@@ -56,7 +56,7 @@ namespace ExternalClinics
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            if (this.Text == "Add Patient")
+            if (this.Text == "Add")
             {
                 Pat_Doctor.Text = "";
                 Pat_FamilyName.Text = "";
@@ -73,7 +73,7 @@ namespace ExternalClinics
             }
         }
 
-        private void Save_Click(object sender, EventArgs e)
+        private void Save_Click_1(object sender, EventArgs e)
         {
             bool error = false;
 
@@ -119,29 +119,32 @@ namespace ExternalClinics
             }
             else
             {
-
+                string strsql = "DECLARE @lastID as numeric(18,0) = (select isnull(MAX(Pat_ID),0)+1 as [Pat_ID] from tbl_Patients); ";
                 try
                 {
-                    //string sex = "I";
-                    //if (Pat_Sex_Male.Checked) sex = "M";
+                    string sex = "I";
+                    if (Pat_Sex_Male.Checked) sex = "M";
 
-                    //string strsql = "INSERT INTO tbl_Patients VALUES(";
-                    //strsql += Doc_Code.Text.ToQueryString() + "," + Doc_Name.Text.ToQueryString() + "," + Doc_Specialty.Text.ToQueryString() + ",";
-                    //strsql += "NULL,'" + status + "'," + Doc_Password.Text.ToQueryString() + ",'SA',CURRENT_TIMESTAMP)";
+                    
 
-                    //using (SqlConnection con = new SqlConnection(connectionString))
-                    //{
-                    //    using (SqlCommand cmd = new SqlCommand(strsql, con))
-                    //    {
-                    //        cmd.CommandType = CommandType.Text;
-                    //        con.Open();
-                    //        cmd.ExecuteNonQuery();
-                    //        con.Close();
-                    //    }
-                    //}
+                    strsql += "insert into tbl_Patients values (@lastID," + Pat_Doctor.Text.ToQueryString() + ", @lastID," + Pat_FamilyName.Text.ToQueryString();
+                    strsql += ", " + Pat_FirstName.Text.ToQueryString() + ", " + Pat_FatherName.Text.ToQueryString() + ", " + Pat_Address.Text.ToQueryString();
+                    strsql += ", " + Pat_Telephone.Text.ToQueryString() + ", " + Pat_Fax.Text.ToQueryString() + ", " + Pat_Email.Text.ToQueryString();
+                    strsql += ", NULL, " + Pat_BloodGroup.Text.ToQueryString() + ", " + Pat_BirthDate.Value.ToString().ToQueryString() + ", '" + sex + "','SA',CURRENT_TIMESTAMP)";
 
-                    //this.Close();
-                    //MessageBox.Show("Saved Successfully");
+                    using (SqlConnection con = new SqlConnection(connectionString))
+                    {
+                        using (SqlCommand cmd = new SqlCommand(strsql, con))
+                        {
+                            cmd.CommandType = CommandType.Text;
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                        }
+                    }
+
+                    this.Close();
+                    MessageBox.Show("Saved Successfully");
                 }
                 catch (Exception ex)
                 {

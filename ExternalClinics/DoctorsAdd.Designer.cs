@@ -109,6 +109,7 @@ namespace ExternalClinics
             this.Doc_Code.Name = "Doc_Code";
             this.Doc_Code.Size = new System.Drawing.Size(69, 23);
             this.Doc_Code.TabIndex = 7;
+            this.Doc_Code.Leave += new System.EventHandler(this.Doc_Code_Leave);
             // 
             // Doc_Name
             // 

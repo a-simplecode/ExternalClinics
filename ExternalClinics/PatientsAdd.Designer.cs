@@ -32,7 +32,7 @@ namespace ExternalClinics
             this.Pat_FirstName_Label = new System.Windows.Forms.Label();
             this.Pat_FamilyName_Label = new System.Windows.Forms.Label();
             this.Pat_FatherName_Label = new System.Windows.Forms.Label();
-            this.Pat_Telephone = new System.Windows.Forms.Label();
+            this.Pat_Telephone_Label = new System.Windows.Forms.Label();
             this.Pat_BirthDate_Label = new System.Windows.Forms.Label();
             this.Pat_Doctor_Label = new System.Windows.Forms.Label();
             this.Pat_Address_Label = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@ namespace ExternalClinics
             this.Pat_FirstName = new System.Windows.Forms.TextBox();
             this.Pat_FamilyName = new System.Windows.Forms.TextBox();
             this.Pat_FatherName = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Pat_Telephone = new System.Windows.Forms.TextBox();
             this.Pat_Address = new System.Windows.Forms.TextBox();
             this.Pat_Fax = new System.Windows.Forms.TextBox();
             this.Pat_Email = new System.Windows.Forms.TextBox();
@@ -86,14 +86,14 @@ namespace ExternalClinics
             this.Pat_FatherName_Label.TabIndex = 2;
             this.Pat_FatherName_Label.Text = "Father Name * :";
             // 
-            // Pat_Telephone
+            // Pat_Telephone_Label
             // 
-            this.Pat_Telephone.AutoSize = true;
-            this.Pat_Telephone.Location = new System.Drawing.Point(66, 113);
-            this.Pat_Telephone.Name = "Pat_Telephone";
-            this.Pat_Telephone.Size = new System.Drawing.Size(55, 15);
-            this.Pat_Telephone.TabIndex = 3;
-            this.Pat_Telephone.Text = "Phone * :";
+            this.Pat_Telephone_Label.AutoSize = true;
+            this.Pat_Telephone_Label.Location = new System.Drawing.Point(66, 113);
+            this.Pat_Telephone_Label.Name = "Pat_Telephone_Label";
+            this.Pat_Telephone_Label.Size = new System.Drawing.Size(55, 15);
+            this.Pat_Telephone_Label.TabIndex = 3;
+            this.Pat_Telephone_Label.Text = "Phone * :";
             // 
             // Pat_BirthDate_Label
             // 
@@ -191,13 +191,13 @@ namespace ExternalClinics
             this.Pat_FatherName.Size = new System.Drawing.Size(142, 23);
             this.Pat_FatherName.TabIndex = 15;
             // 
-            // textBox3
+            // Pat_Telephone
             // 
-            this.textBox3.Location = new System.Drawing.Point(191, 113);
-            this.textBox3.MaxLength = 600;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(142, 23);
-            this.textBox3.TabIndex = 16;
+            this.Pat_Telephone.Location = new System.Drawing.Point(191, 113);
+            this.Pat_Telephone.MaxLength = 50;
+            this.Pat_Telephone.Name = "Pat_Telephone";
+            this.Pat_Telephone.Size = new System.Drawing.Size(142, 23);
+            this.Pat_Telephone.TabIndex = 16;
             // 
             // Pat_Address
             // 
@@ -263,10 +263,14 @@ namespace ExternalClinics
             // 
             // Pat_BirthDate
             // 
+            this.Pat_BirthDate.CustomFormat = "yyyy-MM-dd";
+            this.Pat_BirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Pat_BirthDate.Location = new System.Drawing.Point(191, 202);
+            this.Pat_BirthDate.MaxDate = new System.DateTime(2021, 3, 22, 0, 0, 0, 0);
             this.Pat_BirthDate.Name = "Pat_BirthDate";
             this.Pat_BirthDate.Size = new System.Drawing.Size(142, 23);
             this.Pat_BirthDate.TabIndex = 24;
+            this.Pat_BirthDate.Value = new System.DateTime(2021, 3, 22, 0, 0, 0, 0);
             // 
             // Pat_Photo
             // 
@@ -285,6 +289,7 @@ namespace ExternalClinics
             this.Save.TabIndex = 27;
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = false;
+            this.Save.Click += new System.EventHandler(this.Save_Click_1);
             // 
             // Clear
             // 
@@ -313,7 +318,7 @@ namespace ExternalClinics
             this.Controls.Add(this.Pat_Email);
             this.Controls.Add(this.Pat_Fax);
             this.Controls.Add(this.Pat_Address);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.Pat_Telephone);
             this.Controls.Add(this.Pat_FatherName);
             this.Controls.Add(this.Pat_FamilyName);
             this.Controls.Add(this.Pat_FirstName);
@@ -325,11 +330,12 @@ namespace ExternalClinics
             this.Controls.Add(this.Pat_Address_Label);
             this.Controls.Add(this.Pat_Doctor_Label);
             this.Controls.Add(this.Pat_BirthDate_Label);
-            this.Controls.Add(this.Pat_Telephone);
+            this.Controls.Add(this.Pat_Telephone_Label);
             this.Controls.Add(this.Pat_FatherName_Label);
             this.Controls.Add(this.Pat_FamilyName_Label);
             this.Controls.Add(this.Pat_FirstName_Label);
             this.Name = "PatientsAdd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PatientsAdd";
             ((System.ComponentModel.ISupportInitialize)(this.Pat_Photo)).EndInit();
             this.ResumeLayout(false);
@@ -341,7 +347,7 @@ namespace ExternalClinics
 
         private System.Windows.Forms.Label Pat_FirstName_Label;
         private System.Windows.Forms.Label Pat_FatherName_Label;
-        private System.Windows.Forms.Label Pat_Telephone;
+        private System.Windows.Forms.Label Pat_Telephone_Label;
         private System.Windows.Forms.Label Pat_BirthDate_Label;
         private System.Windows.Forms.Label Pat_Doctor_Label;
         private System.Windows.Forms.Label Pat_Address_Label;
@@ -350,9 +356,8 @@ namespace ExternalClinics
         private System.Windows.Forms.Label Pat_Sex_Label;
         private System.Windows.Forms.Label Pat_BloodGroup_label;
         private System.Windows.Forms.TextBox Pat_FirstName;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox Pat_FatherName;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox Pat_Telephone;
         private System.Windows.Forms.TextBox Pat_Address;
         private System.Windows.Forms.TextBox Pat_Fax;
         private System.Windows.Forms.TextBox Pat_Email;
@@ -364,7 +369,6 @@ namespace ExternalClinics
         private System.Windows.Forms.RadioButton Pat_Sex_Female;
         private System.Windows.Forms.DateTimePicker Pat_BirthDate;
         private System.Windows.Forms.Label Pat_Photo_Label;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox Pat_Photo;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button Clear;
