@@ -133,7 +133,6 @@ namespace ExternalClinics
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 216);
-            this.ControlBox = false;
             this.Controls.Add(this.Room_Desc);
             this.Controls.Add(this.Room_Code);
             this.Controls.Add(this.Save);
@@ -143,9 +142,11 @@ namespace ExternalClinics
             this.Controls.Add(this.Room_Status_Label);
             this.Controls.Add(this.Room_Desc_Label);
             this.Controls.Add(this.Room_Code_Label);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RoomsAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Room";
+            this.Text = "Add";
             this.ResumeLayout(false);
             this.PerformLayout();
 

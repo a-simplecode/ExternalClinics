@@ -14,7 +14,6 @@ namespace ExternalClinics
 {
     public partial class DoctorsAdd : Form
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         public DoctorsAdd()
         {
             InitializeComponent();
@@ -26,7 +25,7 @@ namespace ExternalClinics
 
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(cls_Shared.connectionsString))
                 {
                     using (SqlCommand cmd = new SqlCommand(strsql, con))
                     {
@@ -57,7 +56,7 @@ namespace ExternalClinics
 
             private void Clear_Click(object sender, EventArgs e)
         {
-            if(this.Text == "Add Doctor")
+            if(this.Text == "Add")
             {
                 Doc_Code.Text = "";
                 Doc_Name.Text = "";
@@ -112,7 +111,7 @@ namespace ExternalClinics
                     strsql += Doc_Code.Text.ToQueryString() + "," + Doc_Name.Text.ToQueryString() + "," + Doc_Specialty.Text.ToQueryString() + ",";
                     strsql += "NULL,'" + status +"'," + Doc_Password.Text.ToQueryString() +",'SA',CURRENT_TIMESTAMP)";
 
-                    using (SqlConnection con = new SqlConnection(connectionString))
+                    using (SqlConnection con = new SqlConnection(cls_Shared.connectionsString))
                     {
                         using (SqlCommand cmd = new SqlCommand(strsql, con))
                         {
@@ -141,7 +140,7 @@ namespace ExternalClinics
                 {
                     string strsql = "SELECT Doc_Code FROM tbl_Doctors where Doc_Code = " + Doc_Code.Text.ToQueryString();
 
-                    using (SqlConnection con = new SqlConnection(connectionString))
+                    using (SqlConnection con = new SqlConnection(cls_Shared.connectionsString))
                     {
                         using (SqlCommand cmd = new SqlCommand(strsql, con))
                         {

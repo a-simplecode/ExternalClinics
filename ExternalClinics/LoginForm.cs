@@ -14,7 +14,6 @@ namespace ExternalClinics
 {
     public partial class LoginForm : Form
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         public LoginForm()
         {
             InitializeComponent();
@@ -43,7 +42,7 @@ namespace ExternalClinics
                     String query = "select * from tbl_Users where User_Code = " + userName.Text.ToQueryString();
                     query += " and User_Password = " + password.Text.ToQueryString();
 
-                    using (SqlConnection con = new SqlConnection(connectionString))
+                    using (SqlConnection con = new SqlConnection(cls_Shared.connectionsString))
                     {
                         con.Open();
                         using (SqlCommand command = new SqlCommand(query, con))

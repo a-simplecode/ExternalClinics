@@ -7,17 +7,20 @@ namespace ExternalClinics
 {
     public partial class RoomsForm : Form
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         public RoomsForm()
         {
             InitializeComponent();
+            fillRooms();
+        }
 
+        private void fillRooms()
+        {
             string strsql = "select Room_Code as [Code], Room_Desc as [Description], CASE WHEN Room_Status = 'A' then 'Active' else 'Inactive' END as [Status] ";
             strsql += "from tbl_Rooms ";
 
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(cls_Shared.connectionsString))
                 {
                     using (SqlCommand cmd = new SqlCommand(strsql, con))
                     {
@@ -43,17 +46,11 @@ namespace ExternalClinics
 
         private void AddNew_Func()
         {
-            RoomsAdd frm = new RoomsAdd();
-            frm.MdiParent = this.MdiParent;
-            frm.Text = "Add";
-
-            if (Functions.CheckOpened("RoomsAdd"))
+            using (RoomsAdd frm = new RoomsAdd())
             {
-                frm.Focus();
-            }
-            else
-            {
-                frm.Show();
+                frm.Owner = this;
+                frm.ShowDialog();
+                fillRooms();
             }
         }
 

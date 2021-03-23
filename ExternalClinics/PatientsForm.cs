@@ -8,11 +8,14 @@ namespace ExternalClinics
 {
     public partial class PatientsForm : Form
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         public PatientsForm()
         {
             InitializeComponent();
+            fillPatients();
+        }
 
+        private void fillPatients()
+        {
             string strsql = "select Pat_ID as [ID], Pat_FirstName +' '+ Pat_FamilyName as [Name], ";
             strsql += "Doc_Name as [Doctor],Pat_Telephone as [Phone], Pat_Address as [Address], ";
             strsql += "CASE WHEN Pat_Sex = 'M' THEN 'Male' else 'Female' END AS [Sex], Pat_BloodGroup as [Blood Groop] ";
@@ -21,7 +24,7 @@ namespace ExternalClinics
 
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(cls_Shared.connectionsString))
                 {
                     using (SqlCommand cmd = new SqlCommand(strsql, con))
                     {
@@ -47,17 +50,11 @@ namespace ExternalClinics
 
         private void AddNew_Func()
         {
-            PatientsAdd frm = new PatientsAdd();
-            frm.MdiParent = this.MdiParent;
-            frm.Text = "Add";
-
-            if (Functions.CheckOpened("PatientsAdd"))
+            using (PatientsAdd frm = new PatientsAdd())
             {
-                frm.Focus();
-            }
-            else
-            {
-                frm.Show();
+                frm.Owner = this;
+                frm.ShowDialog();
+                fillPatients();
             }
         }
 

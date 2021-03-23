@@ -334,9 +334,11 @@ namespace ExternalClinics
             this.Controls.Add(this.Pat_FatherName_Label);
             this.Controls.Add(this.Pat_FamilyName_Label);
             this.Controls.Add(this.Pat_FirstName_Label);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PatientsAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PatientsAdd";
+            this.Text = "Add";
             ((System.ComponentModel.ISupportInitialize)(this.Pat_Photo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

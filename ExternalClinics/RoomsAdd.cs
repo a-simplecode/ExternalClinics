@@ -14,7 +14,6 @@ namespace ExternalClinics
 {
     public partial class RoomsAdd : Form
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         public RoomsAdd()
         {
             InitializeComponent();
@@ -60,7 +59,7 @@ namespace ExternalClinics
                     string strsql = "INSERT INTO tbl_Rooms VALUES(";
                     strsql += Room_Code.Text.ToQueryString() + "," + Room_Desc.Text.ToQueryString() + ",'" + status + "','SA',CURRENT_TIMESTAMP)";
 
-                    using (SqlConnection con = new SqlConnection(connectionString))
+                    using (SqlConnection con = new SqlConnection(cls_Shared.connectionsString))
                     {
                         using (SqlCommand cmd = new SqlCommand(strsql, con))
                         {
@@ -89,7 +88,7 @@ namespace ExternalClinics
                 {
                     string strsql = "SELECT Room_Code FROM tbl_Rooms where Room_Code = " + Room_Code.Text.ToQueryString();
 
-                    using (SqlConnection con = new SqlConnection(connectionString))
+                    using (SqlConnection con = new SqlConnection(cls_Shared.connectionsString))
                     {
                         using (SqlCommand cmd = new SqlCommand(strsql, con))
                         {

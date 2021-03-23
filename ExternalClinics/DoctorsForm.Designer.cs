@@ -30,8 +30,8 @@ namespace ExternalClinics
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Dr_Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.AddNew = new System.Windows.Forms.Button();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,19 +43,12 @@ namespace ExternalClinics
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Dr_Edit});
+            this.Edit});
             this.dataGridView1.Location = new System.Drawing.Point(1, 42);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(1216, 601);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Dr_Edit
-            // 
-            this.Dr_Edit.HeaderText = "";
-            this.Dr_Edit.Name = "Dr_Edit";
-            this.Dr_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dr_Edit.Text = "Edit";
             // 
             // AddNew
             // 
@@ -66,6 +59,12 @@ namespace ExternalClinics
             this.AddNew.Text = "Add";
             this.AddNew.UseVisualStyleBackColor = true;
             this.AddNew.Click += new System.EventHandler(this.AddNew_Click);
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "";
+            this.Edit.Name = "Edit";
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // DoctorsForm
             // 
@@ -86,6 +85,6 @@ namespace ExternalClinics
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button AddNew;
-        private System.Windows.Forms.DataGridViewButtonColumn Dr_Edit;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit;
     }
 }

@@ -14,7 +14,6 @@ namespace ExternalClinics
 {
     public partial class PatientsAdd : Form
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         public PatientsAdd()
         {
             InitializeComponent();
@@ -25,7 +24,7 @@ namespace ExternalClinics
 
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(cls_Shared.connectionsString))
                 {
                     using (SqlCommand cmd = new SqlCommand(strsql, con))
                     {
@@ -132,7 +131,7 @@ namespace ExternalClinics
                     strsql += ", " + Pat_Telephone.Text.ToQueryString() + ", " + Pat_Fax.Text.ToQueryString() + ", " + Pat_Email.Text.ToQueryString();
                     strsql += ", NULL, " + Pat_BloodGroup.Text.ToQueryString() + ", " + Pat_BirthDate.Value.ToString().ToQueryString() + ", '" + sex + "','SA',CURRENT_TIMESTAMP)";
 
-                    using (SqlConnection con = new SqlConnection(connectionString))
+                    using (SqlConnection con = new SqlConnection(cls_Shared.connectionsString))
                     {
                         using (SqlCommand cmd = new SqlCommand(strsql, con))
                         {

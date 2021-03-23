@@ -8,19 +8,23 @@ namespace ExternalClinics
 {
     public partial class DoctorsForm : Form
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        
         public DoctorsForm()
         {
             InitializeComponent();
 
-            string strsql = "select Doc_Code as [Dr Code], Doc_Name as [Dr Name], Spec_Desc as [Dr Specialty] ";
+            fillDoc();
+        }
+        private void fillDoc()
+        {
+            string strsql = "select Doc_Code, Doc_Name, Spec_Desc ";
             strsql += "from tbl_Doctors ";
             strsql += "inner join tbl_Specialties on tbl_Doctors.Doc_Specialty = tbl_Specialties.Spec_Code ";
             strsql += "where Doc_Status = 'A'";
 
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(cls_Shared.connectionsString))
                 {
                     using (SqlCommand cmd = new SqlCommand(strsql, con))
                     {
@@ -32,6 +36,18 @@ namespace ExternalClinics
                                 sda.Fill(dt);
                                 dataGridView1.DataSource = dt;
                                 dataGridView1.Dock = DockStyle.Fill;
+                                dataGridView1.Columns[0].Width = 90;
+                                dataGridView1.Columns[0].HeaderText = "";
+                                dataGridView1.Columns[1].Width = 200;
+                                dataGridView1.Columns[1].HeaderText = "Code";
+                                dataGridView1.Columns[2].Width = 400;
+                                dataGridView1.Columns[2].HeaderText = "Name";
+                                dataGridView1.Columns[3].Width = 200;
+                                dataGridView1.Columns[3].HeaderText = "Specialty";
+                                //dataGridView1.Columns["Dr Code"].Width = 90;
+                                //dataGridView1.Columns["Dr Code"].HeaderText = "My Doc Code";
+                                //dataGridView1.Columns[0].Visible
+
                             }
                         }
 
@@ -43,20 +59,13 @@ namespace ExternalClinics
                 MessageBox.Show(ex.Message);
             }
         }
-       
         private void AddNew_Func()
         {
-            DoctorsAdd frm = new DoctorsAdd();
-            frm.MdiParent = this.MdiParent;
-            frm.Text = "Add";
-
-            if (Functions.CheckOpened("DoctorsAdd"))
+            using (DoctorsAdd frm = new DoctorsAdd())
             {
-                frm.Focus();
-            }
-            else
-            {
-                frm.Show();
+                frm.Owner = this;
+                frm.ShowDialog();
+                fillDoc();
             }
         }
 
