@@ -44,11 +44,13 @@ namespace ExternalClinics
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Dr_Edit});
-            this.dataGridView1.Location = new System.Drawing.Point(2, 29);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 30);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1216, 601);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Dr_Edit
             // 
@@ -56,10 +58,11 @@ namespace ExternalClinics
             this.Dr_Edit.Name = "Dr_Edit";
             this.Dr_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Dr_Edit.Text = "Edit";
+            this.Dr_Edit.UseColumnTextForButtonValue = true;
             // 
             // AddNew
             // 
-            this.AddNew.Location = new System.Drawing.Point(2, 0);
+            this.AddNew.Location = new System.Drawing.Point(2, 1);
             this.AddNew.Name = "AddNew";
             this.AddNew.Size = new System.Drawing.Size(43, 23);
             this.AddNew.TabIndex = 4;
@@ -84,7 +87,7 @@ namespace ExternalClinics
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewButtonColumn Dr_Edit;
         private System.Windows.Forms.Button AddNew;
+        private System.Windows.Forms.DataGridViewButtonColumn Dr_Edit;
     }
 }

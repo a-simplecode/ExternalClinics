@@ -182,12 +182,14 @@ namespace ExternalClinics
             // 
             // Doc_Specialty
             // 
+            this.Doc_Specialty.DisplayMember = "value";
             this.Doc_Specialty.FormattingEnabled = true;
             this.Doc_Specialty.Location = new System.Drawing.Point(190, 80);
             this.Doc_Specialty.MaxDropDownItems = 100;
             this.Doc_Specialty.Name = "Doc_Specialty";
             this.Doc_Specialty.Size = new System.Drawing.Size(142, 23);
             this.Doc_Specialty.TabIndex = 9;
+            this.Doc_Specialty.ValueMember = "value";
             // 
             // DoctorsAdd
             // 

@@ -47,8 +47,10 @@ namespace ExternalClinics
             this.dataGridView1.Location = new System.Drawing.Point(0, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1253, 570);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Dr_Edit
             // 
@@ -56,6 +58,7 @@ namespace ExternalClinics
             this.Dr_Edit.Name = "Dr_Edit";
             this.Dr_Edit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.Dr_Edit.Text = "Edit";
+            this.Dr_Edit.UseColumnTextForButtonValue = true;
             // 
             // AddNew
             // 
@@ -85,7 +88,7 @@ namespace ExternalClinics
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewButtonColumn Dr_Edit;
         private System.Windows.Forms.Button AddNew;
+        private System.Windows.Forms.DataGridViewButtonColumn Dr_Edit;
     }
 }

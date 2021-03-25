@@ -17,6 +17,20 @@ namespace ExternalClinics
         public RoomsAdd()
         {
             InitializeComponent();
+            if (RoomsForm.roomObj.Count > 0)
+            {
+                EditForm();
+            }
+        }
+
+        private void EditForm()
+        {
+            Room_Code.Text = RoomsForm.roomObj["Room_Code"].ToString();
+            Room_Code.ReadOnly = true;
+            Room_Code.BackColor = Color.LightGray;
+            Room_Desc.Text = RoomsForm.roomObj["Room_Desc"].ToString();
+            Room_Status_Active.Checked = RoomsForm.roomObj["Room_Status"].ToString() == "Active" ? true : false;
+            Room_Status_Inactive.Checked = RoomsForm.roomObj["Room_Status"].ToString() == "Inactive" ? true : false;
         }
 
         private void Clear_Click(object sender, EventArgs e)
@@ -26,6 +40,10 @@ namespace ExternalClinics
                 Room_Code.Text = "";
                 Room_Desc.Text = "";
                 Room_Status_Active.Checked = true;
+            }
+            else
+            {
+                EditForm();
             }
         }
 
@@ -56,8 +74,13 @@ namespace ExternalClinics
                     string status = "I";
                     if (Room_Status_Active.Checked) status = "A";
 
-                    string strsql = "INSERT INTO tbl_Rooms VALUES(";
-                    strsql += Room_Code.Text.ToQueryString() + "," + Room_Desc.Text.ToQueryString() + ",'" + status + "','SA',CURRENT_TIMESTAMP)";
+                    string strsql = "IF NOT EXISTS(SELECT Room_Code from tbl_Rooms where Room_Code = " + Room_Code.Text.ToQueryString() + ") ";
+                    strsql += "INSERT INTO tbl_Rooms VALUES(";
+                    strsql += Room_Code.Text.ToQueryString() + "," + Room_Desc.Text.ToQueryString() + ",'" + status + "','SA',CURRENT_TIMESTAMP) ";
+                    strsql += "ELSE ";
+                    strsql += "UPDATE tbl_Rooms set ";
+                    strsql += "Room_Desc = " + Room_Desc.Text.ToQueryString() + ", Room_Status = '" + status + "' ";
+                    strsql += "WHERE Room_Code = " + Room_Code.Text.ToQueryString();
 
                     using (SqlConnection con = new SqlConnection(cls_Shared.connectionsString))
                     {
@@ -82,7 +105,7 @@ namespace ExternalClinics
 
         private void Room_Code_Leave(object sender, EventArgs e)
         {
-            if (Room_Code.Text.Trim() != "")
+            if (Room_Code.Text.Trim() != "" && this.Text == "Add")
             {
                 try
                 {

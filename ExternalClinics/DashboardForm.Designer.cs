@@ -58,32 +58,32 @@ namespace ExternalClinics
             // Rooms
             // 
             this.Rooms.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.Rooms.Location = new System.Drawing.Point(266, -2);
+            this.Rooms.Location = new System.Drawing.Point(283, -2);
             this.Rooms.Name = "Rooms";
             this.Rooms.Size = new System.Drawing.Size(78, 54);
             this.Rooms.TabIndex = 3;
-            this.Rooms.Text = "Rooms";
+            this.Rooms.Text = "F4-Rooms";
             this.Rooms.UseVisualStyleBackColor = true;
             this.Rooms.Click += new System.EventHandler(this.Rooms_Click);
             // 
             // Patients
             // 
-            this.Patients.Location = new System.Drawing.Point(180, 0);
+            this.Patients.Location = new System.Drawing.Point(197, 0);
             this.Patients.Name = "Patients";
             this.Patients.Size = new System.Drawing.Size(80, 52);
             this.Patients.TabIndex = 2;
-            this.Patients.Text = "Patients";
+            this.Patients.Text = "F3-Patients";
             this.Patients.UseVisualStyleBackColor = true;
             this.Patients.Click += new System.EventHandler(this.Patients_Click);
             // 
             // Doctors
             // 
             this.Doctors.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Doctors.Location = new System.Drawing.Point(99, 0);
+            this.Doctors.Location = new System.Drawing.Point(116, 0);
             this.Doctors.Name = "Doctors";
             this.Doctors.Size = new System.Drawing.Size(75, 52);
             this.Doctors.TabIndex = 1;
-            this.Doctors.Text = "Doctors";
+            this.Doctors.Text = "F2-Doctors";
             this.Doctors.UseVisualStyleBackColor = false;
             this.Doctors.Click += new System.EventHandler(this.Doctors_Click);
             // 
@@ -92,9 +92,9 @@ namespace ExternalClinics
             this.Appointments.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Appointments.Location = new System.Drawing.Point(0, 0);
             this.Appointments.Name = "Appointments";
-            this.Appointments.Size = new System.Drawing.Size(93, 52);
+            this.Appointments.Size = new System.Drawing.Size(110, 52);
             this.Appointments.TabIndex = 0;
-            this.Appointments.Text = "Appointments";
+            this.Appointments.Text = "F1-Appointments";
             this.Appointments.UseVisualStyleBackColor = false;
             this.Appointments.Click += new System.EventHandler(this.Appointments_Click);
             // 
@@ -107,6 +107,7 @@ namespace ExternalClinics
             this.ClientSize = new System.Drawing.Size(800, 327);
             this.Controls.Add(this.TopBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.KeyPreview = true;
             this.Name = "DashboardForm";
