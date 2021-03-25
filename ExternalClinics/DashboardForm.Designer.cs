@@ -57,27 +57,30 @@ namespace ExternalClinics
             // 
             // Rooms
             // 
+            this.Rooms.BackColor = System.Drawing.Color.MediumOrchid;
             this.Rooms.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.Rooms.Location = new System.Drawing.Point(283, -2);
             this.Rooms.Name = "Rooms";
             this.Rooms.Size = new System.Drawing.Size(78, 54);
             this.Rooms.TabIndex = 3;
             this.Rooms.Text = "F4-Rooms";
-            this.Rooms.UseVisualStyleBackColor = true;
+            this.Rooms.UseVisualStyleBackColor = false;
             this.Rooms.Click += new System.EventHandler(this.Rooms_Click);
             // 
             // Patients
             // 
+            this.Patients.BackColor = System.Drawing.Color.LightSeaGreen;
             this.Patients.Location = new System.Drawing.Point(197, 0);
             this.Patients.Name = "Patients";
             this.Patients.Size = new System.Drawing.Size(80, 52);
             this.Patients.TabIndex = 2;
             this.Patients.Text = "F3-Patients";
-            this.Patients.UseVisualStyleBackColor = true;
+            this.Patients.UseVisualStyleBackColor = false;
             this.Patients.Click += new System.EventHandler(this.Patients_Click);
             // 
             // Doctors
             // 
+            this.Doctors.BackColor = System.Drawing.Color.Lime;
             this.Doctors.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Doctors.Location = new System.Drawing.Point(116, 0);
             this.Doctors.Name = "Doctors";
@@ -89,6 +92,7 @@ namespace ExternalClinics
             // 
             // Appointments
             // 
+            this.Appointments.BackColor = System.Drawing.Color.DarkOrange;
             this.Appointments.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Appointments.Location = new System.Drawing.Point(0, 0);
             this.Appointments.Name = "Appointments";
